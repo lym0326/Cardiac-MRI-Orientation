@@ -8,8 +8,8 @@ from torch.nn import Conv2d
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 from liyimengPJ1.formal.qtTest.MyDataset import MyDataset
-root1 = r'D:\liyimengPJ\liyimengPJ1\data\C0\train'
-root2 = r'D:\liyimengPJ\liyimengPJ1\data\C0\test'
+root1 = r'data\C0\train'
+root2 = r'data\C0\test'
 num_workers = 0
 
 train_dataset = MyDataset(root=root1, mode='train', truncation=True)
