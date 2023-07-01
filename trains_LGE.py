@@ -1,19 +1,17 @@
 from d2l import torch as d2l
 from torch import nn
 import torch.utils.data
-
 import os
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 from liyimengPJ1.formal.qtTest.MyDataset import MyDataset
 from torch.utils.tensorboard import SummaryWriter
- # 根据您的数据集定义自己的数据加载器
 
 def makedir(path):
     if not os.path.isdir(path):
         os.makedirs(path)
 makedir('./checkpoints/LGE')
-# 加载预训练模型，这里假设您的模型名为 MyModel，并保存在 model.pth 文件中
+# 加载预训练模型，这里模型名为 MyModel，并保存在pth 文件中
 class MyModel(nn.Module):
     def __init__(self):
         super(MyModel, self).__init__()
@@ -56,9 +54,6 @@ model.load_state_dict(model_dict)
 for param in model.model1[:12].parameters():
     param.requires_grad = False
 
-# 定义新的分类器，替换原模型的最后一层
-# num_ftrs = model.model1[-1].in_features
-# model.model1[-1] = nn.Linear(num_ftrs, num_classes)
 
 # 将模型移动到 GPU 上进行训练
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -122,7 +117,7 @@ def makedir(path):
     if not os.path.isdir(path):
         os.makedirs(path)
 makedir('./checkpoints/LGE')
-# 加载预训练模型，这里假设您的模型名为 MyModel，并保存在 model.pth 文件中
+# 加载预训练模型，这里假设模型名为 MyModel，并保存在 pth 文件中
 class MyModel(nn.Module):
     def __init__(self):
         super(MyModel, self).__init__()
@@ -165,9 +160,6 @@ model.load_state_dict(model_dict)
 for param in model.model1[:12].parameters():
     param.requires_grad = True
 
-# 定义新的分类器，替换原模型的最后一层
-# num_ftrs = model.model1[-1].in_features
-# model.model1[-1] = nn.Linear(num_ftrs, num_classes)
 
 # 将模型移动到 GPU 上进行训练
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
